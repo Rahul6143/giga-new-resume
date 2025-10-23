@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giga Resume Builder vs Others</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: radial-gradient(circle at top right, #ecf3ff 50%, #fef6ff 100%);
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+        }
+        .hero {
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 18px;
+        }
+        .hero h1 {
+            font-size: 2.5em;
+            font-weight: 800;
+            background: linear-gradient(90deg, #4178ff 35%, #a06fff 75%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.18em;
+            color: #60719c;
+            margin-top: 8px;
+        }
+        .card-group {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto 60px auto;
+        }
+        .feature-card {
+            display: flex;
+            align-items: center;
+            padding: 28px 32px;
+            border-radius: 22px;
+            background: linear-gradient(90deg, #f5f9ff 93%, #fae8ff 100%);
+            box-shadow: 0 7px 34px rgba(152,147,254,0.10), 0 2px 8px rgba(90,102,163,0.11);
+            gap: 16px;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .feature-card:hover {
+            box-shadow: 0 20px 48px rgba(90,102,163,0.13);
+            transform: translateY(-4px) scale(1.015);
+        }
+        .icon-wrap {
+            width: 67px;
+            height: 67px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #4178ff45 0%, #a06fff40 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2em;
+            color: #5d93fe;
+            margin-right: 18px;
+            animation: pop 1.3s infinite alternate;
+        }
+        @keyframes pop { 0% { transform: scale(1); } 100% { transform: scale(1.11);} }
+        .feature-title {
+            flex: 2;
+            font-size: 1.18em;
+            font-weight: 700;
+            color: #373d58;
+        }
+        .pill-col {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            flex: 1.1;
+            justify-content: flex-start;
+        }
+        .pill {
+            display: flex;
+            align-items: center;
+            font-size: 1.08em;
+            font-weight: 600;
+            border-radius: 18px;
+            padding: 8px 22px;
+            min-width: 100px;
+        }
+        .pill.yes     { background: #e5fff2; color: #14c780; border:2px solid #b1efd1;}
+        .pill.no      { background: #ffe5e5; color: #e05353; border:2px solid #f7c8c8;}
+        .pill.limited { background: #fffde6; color: #f6a700; border:2px solid #ffe7c8;}
+        .pill.spec    { background: #e4ebff; color: #417df7; border:2px solid #afd2ff;}
+        .pill.gen     { background: #f4f6fc; color: #9289b3; border:2px solid #e4e8f6;}
+        @media (max-width:700px) {
+            .card-group { padding: 0 4px; }
+            .feature-card { padding: 14px 7px; flex-direction: column; align-items: stretch; gap:4px;}
+            .icon-wrap { margin:0 auto 4px auto; }
+            .feature-title, .pill-col { font-size: 0.98em;}
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Why Giga Resume Builder Stands Out</h1>
+        <p>See how we compare to other resume builders</p>
+    </div>
+    <div class="card-group">
+        <div class="feature-card">
+            <div class="icon-wrap">&#128187;</div>
+            <div class="feature-title">Gen AI Skill Recommendations</div>
+            <div class="pill-col">
+                <div class="pill yes">&#10003; Yes</div>
+                <div class="pill no">&#10007; No</div>
+            </div>
+        </div>
+        <div class="feature-card">
+            <div class="icon-wrap">&#128221;</div>
+            <div class="feature-title">Real-Time Project Suggestions</div>
+            <div class="pill-col">
+                <div class="pill yes">&#10003; Yes</div>
+                <div class="pill no">&#10007; No</div>
+            </div>
+        </div>
+        <div class="feature-card">
+            <div class="icon-wrap">&#9940;</div>
+            <div class="feature-title">ATS Compatibility Tested</div>
+            <div class="pill-col">
+                <div class="pill yes">&#10003; Yes</div>
+                <div class="pill limited">&#9888; Limited</div>
+            </div>
+        </div>
+        <div class="feature-card">
+            <div class="icon-wrap">&#128176;</div>
+            <div class="feature-title">Free to Use</div>
+            <div class="pill-col">
+                <div class="pill yes">&#10003; 100% Free</div>
+                <div class="pill limited">&#9888; Limited Access</div>
+            </div>
+        </div>
+        <div class="feature-card">
+            <div class="icon-wrap">&#128187;</div>
+            <div class="feature-title">One-Click GitHub Projects</div>
+            <div class="pill-col">
+                <div class="pill yes">&#10003; Yes</div>
+                <div class="pill no">&#10007; No</div>
+            </div>
+        </div>
+        <div class="feature-card">
+            <div class="icon-wrap">&#129333;</div>
+            <div class="feature-title">Built for Freshers & Tech Roles</div>
+            <div class="pill-col">
+                <div class="pill spec">&#10003; Specifically Designed</div>
+                <div class="pill gen">&#9888; Generic</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
