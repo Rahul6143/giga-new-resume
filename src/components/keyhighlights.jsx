@@ -182,6 +182,7 @@ const useStyles = makeStyles(() => ({
     width: "100% !important",
     marginTop: "60px !important",
     overflowX: "hidden !important",
+    // overflowY: "hidden !important",
   },
   marqueeTrack: {
     display: "flex !important",
