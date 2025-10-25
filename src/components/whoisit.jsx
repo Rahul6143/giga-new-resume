@@ -1,72 +1,451 @@
-import React from "react";
-import { makeStyles } from "@mui/styles";
-import { motion } from "framer-motion";
-import { GraduationCap, Briefcase, TrendingUp, Sparkles } from "lucide-react";
-import { Box, Typography, Grid, Paper } from "@mui/material";
+// import React from "react";
+// import { makeStyles } from "@mui/styles";
+// import { motion } from "framer-motion";
+// import { GraduationCap, Briefcase, TrendingUp, Sparkles } from "lucide-react";
+// import { Box, Typography, Grid, Paper } from "@mui/material";
 
-const useStyles = makeStyles(() => ({
-  root: {
-    background: "linear-gradient(to bottom right, #0f172a, #1e1b4b, #1e3a8a) !important",
-    position: "relative !important",
-    overflow: "hidden !important",
-    padding: "2rem 1rem !important",
-  },
+// const useStyles = makeStyles(() => ({
+//   root: {
+//     background: "linear-gradient(to bottom right, #0f172a, #1e1b4b, #1e3a8a) !important",
+//     position: "relative !important",
+//     overflow: "hidden !important",
+//     padding: "2rem 1rem !important",
+//   },
   
-  container: {
-    position: "relative",
-    maxWidth: '1200',
-    // margin: "0 auto",
-    zIndex: 1,
-  },
-  card: {
-  backgroundColor: "rgba(255, 255, 255, 0.03) !important",
-  border: "1px solid rgba(255, 255, 255, 0.1) !important",
-  backdropFilter: "blur(8px) !important",
-  borderRadius: "24px !important",
-  padding: "1.5rem !important",
-  paddingTop: "2rem !important",
-  overflow: "hidden !important",
-  height: "100% !important",              // ✅ Fill Grid item height
-  minHeight: "175px !important",  // ✅ Set consistent height
-  width: "320px !important",         
-  transition: "0.3s ease !important",
-  alignItems: "center !important",
-  display: "flex !important",             // ✅ To allow vertical layout
-  flexDirection: "column !important",     // ✅ Stack content vertically
-  justifyContent: "center !important", // ✅ Even spacing
-},
-  iconBox: {
-    width: 64,
-    height: 64,
-    borderRadius: 16,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    marginBottom: "1.5rem",
-    backdropFilter: "blur(4px)",
-    border: "1px solid rgba(255, 255, 255, 0.05)",
-    boxShadow: "0px 10px 15px rgba(0,0,0,0.1)",
-  },
-  gradientLine: {
-    marginTop: "1.5rem",
-    height: 4,
-    width: 0,
-    borderRadius: 9999,
-    transition: "width 0.5s",
-  },
-  hoverCard: {
-    "&:hover $gradientLine": {
-      width: 80,
-    },
-  },
-  ctaButtons: {
-    display: "flex",
-    justifyContent: "center",
-    gap: "1rem",
-    marginTop: "3rem",
-    flexWrap: "wrap",
-  },
-}));
+//   container: {
+//     position: "relative",
+//     maxWidth: '1200',
+//     // margin: "0 auto",
+//     zIndex: 1,
+//   },
+//   card: {
+//   backgroundColor: "rgba(255, 255, 255, 0.03) !important",
+//   border: "1px solid rgba(255, 255, 255, 0.1) !important",
+//   backdropFilter: "blur(8px) !important",
+//   borderRadius: "24px !important",
+//   padding: "1.5rem !important",
+//   paddingTop: "2rem !important",
+//   overflow: "hidden !important",
+//   height: "100% !important",              // ✅ Fill Grid item height
+//   minHeight: "175px !important",  // ✅ Set consistent height
+//   width: "320px !important",         
+//   transition: "0.3s ease !important",
+//   alignItems: "center !important",
+//   display: "flex !important",             // ✅ To allow vertical layout
+//   flexDirection: "column !important",     // ✅ Stack content vertically
+//   justifyContent: "center !important", // ✅ Even spacing
+// },
+//   iconBox: {
+//     width: 64,
+//     height: 64,
+//     borderRadius: 16,
+//     display: "flex",
+//     alignItems: "center",
+//     justifyContent: "center",
+//     marginBottom: "1.5rem",
+//     backdropFilter: "blur(4px)",
+//     border: "1px solid rgba(255, 255, 255, 0.05)",
+//     boxShadow: "0px 10px 15px rgba(0,0,0,0.1)",
+//   },
+//   gradientLine: {
+//     marginTop: "1.5rem",
+//     height: 4,
+//     width: 0,
+//     borderRadius: 9999,
+//     transition: "width 0.5s",
+//   },
+//   hoverCard: {
+//     "&:hover $gradientLine": {
+//       width: 80,
+//     },
+//   },
+//   ctaButtons: {
+//     display: "flex",
+//     justifyContent: "center",
+//     gap: "1rem",
+//     marginTop: "3rem",
+//     flexWrap: "wrap",
+//   },
+// }));
+
+// const audiences = [
+//   {
+//     icon: GraduationCap,
+//     title: "Students & Freshers",
+//     description: "Entering the job market",
+//     gradient: "linear-gradient(to bottom right, #3b82f6, #06b6d4)",
+//     iconBg: "rgba(59, 130, 246, 0.1)",
+//     iconColor: "#60a5fa",
+//   },
+//   {
+//     icon: Briefcase,
+//     title: "Working Professionals",
+//     description: "Upgrading roles or switching careers",
+//     gradient: "linear-gradient(to bottom right, #6366f1, #a855f7)",
+//     iconBg: "rgba(99, 102, 241, 0.1)",
+//     iconColor: "#818cf8",
+//   },
+//   {
+//     icon: TrendingUp,
+//     title: "Career Gap Individuals",
+//     description: "Needing impactful resumes",
+//     gradient: "linear-gradient(to bottom right, #8b5cf6, #ec4899)",
+//     iconBg: "rgba(139, 92, 246, 0.1)",
+//     iconColor: "#c084fc",
+//   },
+//   {
+//     icon: Sparkles,
+//     title: "Tech Enthusiasts",
+//     description: "Wanting to showcase Gen AI & project skills",
+//     gradient: "linear-gradient(to bottom right, #d946ef, #f43f5e)",
+//     iconBg: "rgba(232, 121, 249, 0.1)",
+//     iconColor: "#f472b6",
+//   },
+// ];
+
+// const WhoIsItFor = () => {
+//   const classes = useStyles();
+
+//   const containerVariants = {
+//     hidden: { opacity: 0 },
+//     visible: {
+//       opacity: 1,
+//       transition: { staggerChildren: 0.15 },
+//     },
+//   };
+
+//   const itemVariants = {
+//     hidden: { y: 40, opacity: 0 },
+//     visible: {
+//       y: 0,
+//       opacity: 1,
+//       transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
+//     },
+//   };
+
+//   return (
+//     <Box className={classes.root}>
+//       <Box className={classes.container}>
+//         {/* Header */}
+//         <motion.div
+//           initial={{ opacity: 0, y: 20 }}
+//           animate={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 0.8 }}
+//           style={{ textAlign: "center", marginBottom: "1.5rem" }}
+//         >
+//           <Typography
+//             variant="h3"
+//             style={{
+//               fontWeight: "bold",
+//               color: "#fff",
+//               marginTop: "1rem",
+//             }}
+//           >
+//             Who is it{" "}
+//             <span style={{ background: "#f9b600", WebkitBackgroundClip: "text", color: "transparent" }}>
+//               for?
+//             </span>
+//           </Typography>
+//           <Typography variant="h6" style={{ color: "#9ca3af", maxWidth: 800, margin: "0 auto" }}>
+//             Designed for ambitious individuals at every stage of their career journey
+//           </Typography>
+//         </motion.div>
+
+//         {/* Cards */}
+//         <motion.div
+//           variants={containerVariants}
+//           initial="hidden"
+//           animate="visible"
+//         >
+//           <Grid container spacing={4} justifyContent="center" alignItems="stretch">
+//             {audiences.map((audience, index) => (
+//               <Grid item xs={6} key={index}>
+//                 <motion.div
+//                   variants={itemVariants}
+//                   whileHover={{ y: -8 }}
+//                   className={classes.hoverCard}
+//                 >
+//                   <Paper
+//                     elevation={6}
+//                     className={classes.card}
+//                   >
+//                     <Box
+//                       className={classes.iconBox}
+//                       style={{ backgroundColor: audience.iconBg }}
+//                     >
+//                       <audience.icon
+//                         size={32}
+//                         color={audience.iconColor}
+//                       />
+//                     </Box>
+//                     <Typography variant="h5" style={{ color: "#fff", fontWeight: "bold", marginBottom: "0.5rem" }}>
+//                       {audience.title}
+//                     </Typography>
+//                     <Typography variant="body1" style={{ color: "#9ca3af" }}>
+//                       {audience.description}
+//                     </Typography>
+//                     <div
+//                       className={classes.gradientLine}
+//                       style={{ background: audience.gradient }}
+//                     />
+//                   </Paper>
+//                 </motion.div>
+//               </Grid>
+//             ))}
+//           </Grid>
+//         </motion.div>
+//       </Box>
+//     </Box>
+//   );
+// };
+
+// export default WhoIsItFor;
+
+// components/whoisit.jsx
+// import React from "react";
+// import { motion } from "framer-motion";
+// import {
+//   GraduationCap,
+//   Briefcase,
+//   TrendingUp,
+//   Sparkles,
+// } from "lucide-react";
+// import {
+//   Box,
+//   Typography,
+//   Grid,
+//   Paper,
+//   useTheme,
+//   useMediaQuery,
+// } from "@mui/material";
+
+// const audiences = [
+//   {
+//     icon: GraduationCap,
+//     title: "Students & Freshers",
+//     description: "Entering the job market",
+//     gradient: "linear-gradient(to bottom right, #3b82f6, #06b6d4)",
+//     iconBg: "rgba(59, 130, 246, 0.1)",
+//     iconColor: "#60a5fa",
+//   },
+//   {
+//     icon: Briefcase,
+//     title: "Working Professionals",
+//     description: "Upgrading roles or switching careers",
+//     gradient: "linear-gradient(to bottom right, #6366f1, #a855f7)",
+//     iconBg: "rgba(99, 102, 241, 0.1)",
+//     iconColor: "#818cf8",
+//   },
+//   {
+//     icon: TrendingUp,
+//     title: "Career Gap Individuals",
+//     description: "Needing impactful resumes",
+//     gradient: "linear-gradient(to bottom right, #8b5cf6, #ec4899)",
+//     iconBg: "rgba(139, 92, 246, 0.1)",
+//     iconColor: "#c084fc",
+//   },
+//   {
+//     icon: Sparkles,
+//     title: "Tech Enthusiasts",
+//     description: "Wanting to showcase Gen AI & project skills",
+//     gradient: "linear-gradient(to bottom right, #d946ef, #f43f5e)",
+//     iconBg: "rgba(232, 121, 249, 0.1)",
+//     iconColor: "#f472b6",
+//   },
+// ];
+
+// const WhoIsItFor = () => {
+//   const theme = useTheme();
+//   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+//   const containerVariants = {
+//     hidden: { opacity: 0 },
+//     visible: {
+//       opacity: 1,
+//       transition: { staggerChildren: 0.15 },
+//     },
+//   };
+
+//   const itemVariants = {
+//     hidden: { y: 40, opacity: 0 },
+//     visible: {
+//       y: 0,
+//       opacity: 1,
+//       transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
+//     },
+//   };
+
+//   return (
+//     <Box
+//       sx={{
+//         background:
+//           "linear-gradient(to bottom right, #0f172a, #1e1b4b, #1e3a8a)",
+//         position: "relative",
+//         overflow: "hidden",
+//         py: { xs: 4, sm: 6 },
+//         px: { xs: 2, sm: 4 },
+//       }}
+//     >
+//       <Box sx={{ position: "relative", maxWidth: 1200, mx: "auto", zIndex: 1 }}>
+//         {/* Header */}
+//         <motion.div
+//           initial={{ opacity: 0, y: 20 }}
+//           animate={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 0.8 }}
+//           style={{ textAlign: "center", marginBottom: "1.5rem" }}
+//         >
+//           <Typography
+//             variant="h3"
+//             sx={{
+//               fontWeight: "bold",
+//               color: "#fff",
+//               mt: 2,
+//               textAlign: "center",
+//               fontSize: { xs: "2rem", md: "3rem" },
+//             }}
+//           >
+//             Who is it{" "}
+//             <Box
+//               component="span"
+//               sx={{
+//                 background: "#f9b600",
+//                 WebkitBackgroundClip: "text",
+//                 color: "transparent",
+//               }}
+//             >
+//               for?
+//             </Box>
+//           </Typography>
+//           <Typography
+//             variant="h6"
+//             sx={{
+//               color: "#9ca3af",
+//               mx: "auto",
+//               textAlign: "center",
+//               fontSize: { xs: "1rem", sm: "1.1rem" },
+//               maxWidth: 800,
+//               px: { xs: 2, sm: 0 },
+//             }}
+//           >
+//             Designed for ambitious individuals at every stage of their career
+//             journey
+//           </Typography>
+//         </motion.div>
+
+//         {/* Cards */}
+//         <motion.div variants={containerVariants} initial="hidden" animate="visible">
+//           <Grid container spacing={3} justifyContent="center" alignItems="stretch">
+//             {audiences.map((audience, index) => (
+//               <Grid
+//                 item
+//                 xs={12}
+//                 sm={6}
+//                 md={6}
+//                 key={index}
+//                 sx={{ display: "flex", justifyContent: "center" }}
+//               >
+//                 <motion.div
+//                   variants={itemVariants}
+//                   whileHover={{ y: isMobile ? 0 : -8 }}
+//                   style={{ width: "100%", maxWidth: isMobile ? "100%" : "320px" }}
+//                 >
+//                   <Paper
+//                     elevation={isMobile ? 2 : 6}
+//                     sx={{
+//                       backgroundColor: "rgba(255, 255, 255, 0.03)",
+//                       border: "1px solid rgba(255, 255, 255, 0.1)",
+//                       backdropFilter: "blur(8px)",
+//                       borderRadius: "24px",
+//                       p: { xs: 2, sm: 3 },
+//                       pt: { xs: 3, sm: 4 },
+//                       textAlign: "center",
+//                       minHeight: { xs: 175, sm: 200, md: 220 },
+//                       transition: "0.3s ease",
+//                       display: "flex",
+//                       flexDirection: "column",
+//                       alignItems: "center",
+//                       justifyContent: "center",
+//                     }}
+//                   >
+//                     <Box
+//                       sx={{
+//                         width: { xs: 56, sm: 64 },
+//                         height: { xs: 56, sm: 64 },
+//                         borderRadius: 2,
+//                         display: "flex",
+//                         alignItems: "center",
+//                         justifyContent: "center",
+//                         mb: { xs: 2, sm: 3 },
+//                         backgroundColor: audience.iconBg,
+//                         border: "1px solid rgba(255,255,255,0.05)",
+//                         boxShadow: "0px 10px 15px rgba(0,0,0,0.1)",
+//                       }}
+//                     >
+//                       <audience.icon
+//                         size={isMobile ? 28 : 32}
+//                         color={audience.iconColor}
+//                       />
+//                     </Box>
+//                     <Typography
+//                       variant="h5"
+//                       sx={{
+//                         color: "#fff",
+//                         fontWeight: "bold",
+//                         mb: 0.5,
+//                         fontSize: { xs: "1.25rem", sm: "1.5rem" },
+//                       }}
+//                     >
+//                       {audience.title}
+//                     </Typography>
+//                     <Typography
+//                       variant="body1"
+//                       sx={{
+//                         color: "#9ca3af",
+//                         fontSize: { xs: "0.9rem", sm: "1rem" },
+//                       }}
+//                     >
+//                       {audience.description}
+//                     </Typography>
+//                     <Box
+//                       sx={{
+//                         mt: 2,
+//                         height: 4,
+//                         width: 0,
+//                         borderRadius: 9999,
+//                         background: audience.gradient,
+//                         transition: "width 0.5s",
+//                         "&:hover": { width: 80 },
+//                       }}
+//                     />
+//                   </Paper>
+//                 </motion.div>
+//               </Grid>
+//             ))}
+//           </Grid>
+//         </motion.div>
+//       </Box>
+//     </Box>
+//   );
+// };
+
+// export default WhoIsItFor;
+
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  GraduationCap,
+  Briefcase,
+  TrendingUp,
+  Sparkles,
+} from "lucide-react";
+import {
+  Box,
+  Typography,
+  Grid,
+  Paper,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 
 const audiences = [
   {
@@ -104,14 +483,12 @@ const audiences = [
 ];
 
 const WhoIsItFor = () => {
-  const classes = useStyles();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
   };
 
   const itemVariants = {
@@ -124,8 +501,18 @@ const WhoIsItFor = () => {
   };
 
   return (
-    <Box className={classes.root}>
-      <Box className={classes.container}>
+    <Box
+      sx={{
+        background:
+          "linear-gradient(to bottom right, #0f172a, #1e1b4b, #1e3a8a)",
+        position: "relative",
+        overflow: "hidden",
+        py: { xs: 4, sm: 6, md: 8 },
+        px: { xs: 2, sm: 4 },
+        justifyContent: "center",
+      }}
+    >
+      <Box sx={{ position: "relative", maxWidth: 1200, mx: "auto", zIndex: 1 }}>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -135,58 +522,153 @@ const WhoIsItFor = () => {
         >
           <Typography
             variant="h3"
-            style={{
+            sx={{
               fontWeight: "bold",
               color: "#fff",
-              marginTop: "1rem",
+              mt: 2,
+              textAlign: "center",
+              fontSize: { xs: "2rem", md: "3rem" },
             }}
           >
             Who is it{" "}
-            <span style={{ background: "#f9b600", WebkitBackgroundClip: "text", color: "transparent" }}>
+            <Box
+              component="span"
+              sx={{
+                background: "#f9b600",
+                WebkitBackgroundClip: "text",
+                color: "transparent",
+              }}
+            >
               for?
-            </span>
+            </Box>
           </Typography>
-          <Typography variant="h6" style={{ color: "#9ca3af", maxWidth: 800, margin: "0 auto" }}>
-            Designed for ambitious individuals at every stage of their career journey
+          <Typography
+            variant="h6"
+            sx={{
+              color: "#9ca3af",
+              mx: "auto",
+              textAlign: "center",
+              fontSize: { xs: "1rem", sm: "1.1rem" },
+              maxWidth: 800,
+              px: { xs: 2, sm: 0 },
+            }}
+          >
+            Designed for ambitious individuals at every stage of their career
+            journey
           </Typography>
         </motion.div>
 
         {/* Cards */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <Grid container spacing={4} justifyContent="center" alignItems="stretch">
+        <motion.div variants={containerVariants} initial="hidden" animate="visible">
+          <Grid
+            container
+            spacing={4}
+            maxWidth={'80%'}
+            // paddingLeft={'240px'}
+            justifyContent="center"
+            alignItems="stretch" // ✅ Ensures all cards in a row stretch to tallest
+          >
             {audiences.map((audience, index) => (
-              <Grid item xs={6} key={index}>
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={6}
+                lg={6} // ✅ 2x2 layout even on large screens
+                key={index}
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
                 <motion.div
                   variants={itemVariants}
-                  whileHover={{ y: -8 }}
-                  className={classes.hoverCard}
+                  whileHover={{ y: isMobile ? 0 : -8 }}
+                  style={{
+                    flexGrow: 1,
+                    width: "100%",
+                    display: "flex",
+                  }}
                 >
                   <Paper
-                    elevation={6}
-                    className={classes.card}
+                    elevation={isMobile ? 2 : 6}
+                    sx={{
+                      flexGrow: 1,
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      backgroundColor: "rgba(255, 255, 255, 0.03)",
+                      border: "1px solid rgba(255, 255, 255, 0.1)",
+                      backdropFilter: "blur(8px)",
+                      borderRadius: "24px",
+                      px: { xs: 2.5, sm: 3 },
+                      py: { xs: 3, sm: 4 },
+                      textAlign: "center",
+                      transition: "transform 0.3s ease",
+                      "&:hover": {
+                        transform: isMobile ? "none" : "translateY(-6px)",
+                      },
+                    }}
                   >
+                    {/* Icon */}
                     <Box
-                      className={classes.iconBox}
-                      style={{ backgroundColor: audience.iconBg }}
+                      sx={{
+                        width: { xs: 56, sm: 64 },
+                        height: { xs: 56, sm: 64 },
+                        borderRadius: 2,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        mb: { xs: 2, sm: 3 },
+                        backgroundColor: audience.iconBg,
+                        border: "1px solid rgba(255,255,255,0.05)",
+                        boxShadow: "0px 10px 15px rgba(0,0,0,0.1)",
+                      }}
                     >
                       <audience.icon
-                        size={32}
+                        size={isMobile ? 28 : 32}
                         color={audience.iconColor}
                       />
                     </Box>
-                    <Typography variant="h5" style={{ color: "#fff", fontWeight: "bold", marginBottom: "0.5rem" }}>
-                      {audience.title}
-                    </Typography>
-                    <Typography variant="body1" style={{ color: "#9ca3af" }}>
-                      {audience.description}
-                    </Typography>
-                    <div
-                      className={classes.gradientLine}
-                      style={{ background: audience.gradient }}
+
+                    {/* Text */}
+                    <Box sx={{ flexGrow: 1 }}>
+                      <Typography
+                        variant="h5"
+                        sx={{
+                          color: "#fff",
+                          fontWeight: "bold",
+                          mb: 0.5,
+                          fontSize: { xs: "1.25rem", sm: "1.5rem" },
+                        }}
+                      >
+                        {audience.title}
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          color: "#9ca3af",
+                          fontSize: { xs: "0.9rem", sm: "1rem" },
+                          maxWidth: 250,
+                          mx: "auto",
+                        }}
+                      >
+                        {audience.description}
+                      </Typography>
+                    </Box>
+
+                    {/* Gradient line */}
+                    <Box
+                      sx={{
+                        mt: 2,
+                        height: 4,
+                        width: 60,
+                        borderRadius: 9999,
+                        background: audience.gradient,
+                        transition: "width 0.3s",
+                        "&:hover": { width: 80 },
+                      }}
                     />
                   </Paper>
                 </motion.div>
