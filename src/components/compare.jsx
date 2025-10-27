@@ -142,30 +142,26 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
-// Create a custom theme object with breakpoints or use default MUI breakpoints
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   section: {
     textAlign: "center",
     padding: "40px 16px",
     backgroundColor: "#F3F4F6",
-    "@media (max-width: 600px)": {
-      padding: "24px 12px",
+    "@media (max-width: 375px)": {
+      padding: "30px 8px !important",
     },
   },
   container: {
     maxWidth: 1200,
     margin: "0 auto",
     padding: "0 16px !important",
-    "@media (max-width: 600px)": {
-      padding: "0 12px !important",
+    "@media (max-width: 375px)": {
+      padding: "0 8px !important",
     },
   },
   headingWrapper: {
     marginBottom: 30,
-    "@media (max-width: 900px)": {
-      marginBottom: 24,
-    },
-    "@media (max-width: 600px)": {
+    "@media (max-width: 375px)": {
       marginBottom: 20,
     },
   },
@@ -174,21 +170,15 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '8px !important',
     fontSize: "2rem !important",
     color: "#333333",
-    "@media (max-width: 1200px)": {
-      fontSize: "1.75rem !important",
-    },
-    "@media (max-width: 900px)": {
+    "@media (max-width: 375px)": {
       fontSize: "1.5rem !important",
-    },
-    "@media (max-width: 600px)": {
-      fontSize: "1.25rem !important",
       marginBottom: '4px !important',
     },
   },
   subtitle: {
     color: "#6B7280",
-    "@media (max-width: 600px)": {
-      fontSize: "0.875rem !important",
+    "@media (max-width: 375px)": {
+      fontSize: "0.9rem !important",
     },
   },
   tableWrapper: {
@@ -199,11 +189,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "0px 10px 20px rgba(0,0,0,0.1)",
     overflow: "hidden",
     backgroundColor: "#FFFFFF",
-    "@media (max-width: 600px)": {
-      borderRadius: '8px',
-      border: "none",
-      boxShadow: "0px 4px 12px rgba(0,0,0,0.1)",
-    },
+    overflowX: "auto",
   },
   tableHeader: {
     display: "flex",
@@ -214,14 +200,17 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1rem !important",
     padding: "16px 12px !important",
     justifyContent: "center !important",
-    "@media (max-width: 900px)": {
-      padding: "14px 10px !important",
-      fontSize: "0.95rem !important",
-    },
-    "@media (max-width: 600px)": {
-      flexDirection: "column",
+    "@media (max-width: 768px)": {
       padding: "12px 8px !important",
       fontSize: "0.9rem !important",
+    },
+    "@media (max-width: 480px)": {
+      padding: "10px 6px !important",
+      fontSize: "0.8rem !important",
+    },
+    "@media (max-width: 375px)": {
+      padding: "6px 2px !important",
+      fontSize: "0.75rem !important",
     },
   },
   headerCell: {
@@ -230,17 +219,17 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1.2rem !important",
     textAlign: "center",
     fontWeight: "700",
-    "@media (max-width: 1200px)": {
+    justifyContent: "center !important",
+    alignContent: "center !important", 
+    "@media (max-width: 768px)": {
       fontSize: "1.1rem !important",
     },
-    "@media (max-width: 900px)": {
-      fontSize: "1rem !important",
+    "@media (max-width: 480px)": {
+      fontSize: "0.85rem !important",
     },
-    "@media (max-width: 600px)": {
-      fontSize: "1rem !important",
-      padding: "4px 0 !important",
-      textAlign: "center",
-      flex: "none",
+    "@media (max-width: 375px)": {
+      fontSize: "0.7rem !important",
+      padding: "0 20px !important",
     },
   },
   headerCellLeft: {
@@ -248,17 +237,20 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1.2rem !important",
     textAlign: "center",
     fontWeight: "700",
-    "@media (max-width: 1200px)": {
+    justifyContent: "center !important",
+    alignContent: "center !important",
+    "@media (max-width: 768px)": {
       fontSize: "1.1rem !important",
     },
-    "@media (max-width: 900px)": {
+    "@media (max-width: 480px)": {
       fontSize: "1rem !important",
+      textAlign: "left",
+      paddingLeft: "12px !important",
     },
-    "@media (max-width: 600px)": {
-      fontSize: "1rem !important",
-      padding: "4px 0 !important",
-      textAlign: "center",
-      flex: "none",
+    "@media (max-width: 375px)": {
+      fontSize: "0.85rem !important",
+      padding: "0 20px !important",
+      textAlign: "left",
     },
   },
   row: {
@@ -274,37 +266,29 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: "#F9FAFB",
     },
-    "@media (max-width: 900px)": {
-      padding: "16px 10px !important",
+    "@media (max-width: 768px)": {
+      padding: "16px 8px !important",
       fontSize: "0.95rem !important",
     },
-    "@media (max-width: 600px)": {
-      flexDirection: "column",
-      padding: "16px 12px !important",
+    "@media (max-width: 480px)": {
+      padding: "12px 6px !important",
       fontSize: "0.9rem !important",
-      borderBottom: "2px solid #E5E7EB",
-      "&:hover": {
-        backgroundColor: "transparent",
-      },
+    },
+    "@media (max-width: 375px)": {
+      padding: "8px 4px !important",
+      fontSize: "0.75rem !important",
     },
   },
   cell: {
     flex: 1,
     textAlign: "center",
     fontWeight: '600',
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    "@media (max-width: 600px)": {
-      flex: "none",
-      textAlign: "left",
-      justifyContent: "flex-start",
-      padding: "8px 12px !important",
-      minHeight: "32px",
-      borderLeft: "3px solid #004080",
-      margin: "2px 0",
-      backgroundColor: "#F8F9FA",
-      borderRadius: "4px",
+    "@media (max-width: 480px)": {
+      fontSize: "0.85rem !important",
+    },
+    "@media (max-width: 375px)": {
+      fontSize: "0.7rem !important",
+      padding: "0 2px !important",
     },
   },
   cellLeft: {
@@ -312,43 +296,21 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "left",
     paddingLeft: '24px !important',
     fontWeight: '600',
-    display: "flex",
-    alignItems: "center",
-    "@media (max-width: 900px)": {
+    "@media (max-width: 768px)": {
       paddingLeft: '16px !important',
     },
-    "@media (max-width: 600px)": {
-      flex: "none",
-      textAlign: "left",
-      justifyContent: "flex-start",
-      padding: "12px 12px 8px 12px !important",
+    "@media (max-width: 480px)": {
       paddingLeft: '12px !important',
-      fontWeight: '700',
-      backgroundColor: "#004080",
-      color: "#FFFFFF",
-      borderRadius: "4px",
-      marginBottom: "8px",
-      fontSize: "0.95rem !important",
+      fontSize: "0.85rem !important",
+    },
+    "@media (max-width: 375px)": {
+      paddingLeft: '4px !important',
+      fontSize: "0.7rem !important",
     },
   },
-  mobileLabel: {
-    display: "none",
-    "@media (max-width: 600px)": {
-      display: "inline-block",
-      fontWeight: "600",
-      marginRight: "8px",
-      minWidth: "60px",
-      color: "#666666",
-    },
-  },
-  mobileLabelFeature: {
-    display: "none",
-    "@media (max-width: 600px)": {
-      display: "inline-block",
-      fontWeight: "600",
-      marginRight: "8px",
-      minWidth: "60px",
-      color: "#FFFFFF",
+  mobileOptimized: {
+    "@media (max-width: 375px)": {
+      minWidth: "280px",
     },
   },
 }));
@@ -378,32 +340,27 @@ const ComparisonSection = () => {
         </Box>
 
         <Box className={classes.tableWrapper}>
-          {/* Header */}
-          <Box className={classes.tableHeader}>
-            <Box className={classes.headerCellLeft}>
-              Feature
+          <Box className={classes.mobileOptimized}>
+            {/* Header */}
+            <Box className={classes.tableHeader}>
+              <Box className={classes.headerCellLeft}>Feature</Box>
+              <Box className={classes.headerCell}>Giga Resume Builder</Box>
+              <Box className={classes.headerCell}>Other Resume Builders</Box>
             </Box>
-            <Box className={classes.headerCell}>Giga Resume Builder</Box>
-            <Box className={classes.headerCell}>Other Resume Builders</Box>
-          </Box>
 
-          {/* Rows */}
-          {features.map((row, index) => (
-            <Box key={index} className={classes.row}>
-              <Box className={classes.cellLeft}>
-                <span className={classes.mobileLabelFeature}>Feature:</span>
-                {row.feature}
+            {/* Rows */}
+            {features.map((row, index) => (
+              <Box key={index} className={classes.row}>
+                <Box className={classes.cellLeft}>{row.feature}</Box>
+                <Box className={classes.cell} style={{ color: row.gigaColor }}>
+                  {row.giga}
+                </Box>
+                <Box className={classes.cell} style={{ color: row.otherColor }}>
+                  {row.other}
+                </Box>
               </Box>
-              <Box className={classes.cell} style={{ color: row.gigaColor }}>
-                <span className={classes.mobileLabel}>Giga:</span>
-                {row.giga}
-              </Box>
-              <Box className={classes.cell} style={{ color: row.otherColor }}>
-                <span className={classes.mobileLabel}>Others:</span>
-                {row.other}
-              </Box>
-            </Box>
-          ))}
+            ))}
+          </Box>
         </Box>
       </Box>
     </Box>

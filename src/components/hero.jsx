@@ -247,7 +247,7 @@ const useStyles = makeStyles(() => ({
     position: "relative",
     overflow: "hidden",
     backgroundColor: "#FFFFFF",
-    minHeight: "100vh",
+    // minHeight: "100vh",
     display: "flex",
     alignItems: "center",
   },
@@ -260,7 +260,7 @@ const useStyles = makeStyles(() => ({
   container: {
     position: "relative",
     maxWidth: "1280px",
-    margin: "0 auto",
+    margin: "30px auto",
     padding: "2rem 1rem",
     display: "grid",
     gridTemplateColumns: "1.2fr 1fr",
@@ -290,7 +290,7 @@ const useStyles = makeStyles(() => ({
   left: {
     display: "flex",
     flexDirection: "column",
-    gap: "1.5rem",
+    gap: "1.3rem",
     zIndex: 2,
     color: "#FFFFFF",
     
@@ -333,7 +333,7 @@ const useStyles = makeStyles(() => ({
     },
   },
   title: {
-    marginTop: "20px !important",
+    // marginTop: "20px !important",
     fontWeight: "700 !important",
     fontSize: "3rem !important",
     lineHeight: "1.1 !important",
@@ -365,12 +365,12 @@ const useStyles = makeStyles(() => ({
     display: "inline-block",
   },
   subtitle: {
-    fontSize: "1.5rem !important",
+    fontSize: "2rem !important",
     lineHeight: "1.4 !important",
     color: "#FFFFFF !important",
     
     "@media (min-width: 1024px)": {
-      fontSize: "1.5rem !important",
+      fontSize: "2rem !important",
     },
     
     "@media (max-width: 768px)": {
@@ -511,7 +511,8 @@ const useStyles = makeStyles(() => ({
   right: {
     position: "relative",
     zIndex: 1,
-    
+    height: "600px",
+    width: "490px",
     "@media (max-width: 1024px)": {
       marginTop: "2rem",
     },
@@ -626,7 +627,7 @@ const HeroSection = () => {
         <div className={classes.right}>
           <div className={classes.blurBg} />
           <img
-            src="image.png"
+            src="hero_image.jpeg"
             alt="Resume builder preview"
             className={classes.image}
           />

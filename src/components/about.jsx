@@ -804,12 +804,12 @@ const useStyles = makeStyles({
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
-    minHeight: '60vh',
+    // minHeight: '60vh',
     '@media (min-width: 768px)': {
       minHeight: '80vh'
     },
     '@media (min-width: 1024px)': {
-      minHeight: '100vh'
+      // minHeight: '100vh'
     }
   },
   heroBackground: {
@@ -822,57 +822,7 @@ const useStyles = makeStyles({
     inset: '0',
     opacity: 0.3
   },
-  blob1: {
-    position: 'absolute',
-    top: '20px',
-    left: '20px',
-    width: '150px',
-    height: '150px',
-    backgroundColor: '#a78bfa',
-    borderRadius: '50%',
-    mixBlendMode: 'multiply',
-    filter: 'blur(48px)',
-    '@media (min-width: 768px)': {
-      top: '80px',
-      left: '80px',
-      width: '288px',
-      height: '288px'
-    }
-  },
-  blob2: {
-    position: 'absolute',
-    top: '40px',
-    right: '20px',
-    width: '150px',
-    height: '150px',
-    backgroundColor: '#60a5fa',
-    borderRadius: '50%',
-    mixBlendMode: 'multiply',
-    filter: 'blur(48px)',
-    '@media (min-width: 768px)': {
-      top: '160px',
-      right: '80px',
-      width: '288px',
-      height: '288px'
-    }
-  },
-  blob3: {
-    position: 'absolute',
-    bottom: '20px',
-    left: '40px',
-    width: '150px',
-    height: '150px',
-    backgroundColor: '#818cf8',
-    borderRadius: '50%',
-    mixBlendMode: 'multiply',
-    filter: 'blur(48px)',
-    '@media (min-width: 768px)': {
-      bottom: '80px',
-      left: '160px',
-      width: '288px',
-      height: '288px'
-    }
-  },
+  
   heroContent: {
     position: 'relative',
     zIndex: 10,
@@ -1364,11 +1314,6 @@ const About = () => {
       {/* Hero Section */}
       <section className={classes.heroSection}>
         <div className={classes.heroBackground}>
-          <div className={classes.animatedBackground}>
-            <div className={classes.blob1} />
-            <div className={classes.blob2} />
-            <div className={classes.blob3} />
-          </div>
         </div>
 
         {/* Content */}
@@ -1391,12 +1336,6 @@ const About = () => {
             </p>
           </div>
         </div>
-
-        <div className={classes.scrollIndicator}>
-          <div className={classes.scrollCircle}>
-            <div className={classes.scrollDot} />
-          </div>
-        </div>
       </section>
 
       {/* Our Story Section */}
@@ -1411,7 +1350,7 @@ const About = () => {
           <div className={classes.contentGrid}>
             {/* Content Card */}
             <div style={{ flex: 1 }}>
-              <Card className={classes.contentCard}>
+              <Card className={classes.contentCard} style={{backgroundColor: '#ffffff'}}>
                 <CardContent>
                   <div className={classes.textContent}>
                     <p>
@@ -1438,7 +1377,7 @@ const About = () => {
               <div className={classes.featuresGrid}>
                 {features.map((item, index) => (
                   <div key={index}>
-                    <Card className={classes.featureCard}>
+                    <Card className={classes.featureCard} style={{backgroundColor: '#ffffff'}}>
                       <CardContent style={{ textAlign: 'center', padding: '8px' }}>
                         <div
                           className={classes.featureIcon}
@@ -1514,7 +1453,7 @@ const About = () => {
             {/* Problem Statement */}
             <div style={{ flex: 1 }}>
               <div className={classes.relative}>
-                <Card className={classes.problemCard}>
+                <Card className={classes.problemCard} style={{backgroundColor: '#ffffff'}}>
                   <CardContent style={{ padding: '16px' }}>
                     <h3 style={{ 
                       fontSize: '24px', 
@@ -1562,7 +1501,7 @@ const About = () => {
             <div style={{ flex: 1 }}>
               <div className={classes.relative}>
                 <Card className={classes.solutionCard}>
-                  <CardContent style={{ padding: '16px' }}>
+                  <CardContent style={{ padding: '16px'}}>
                     <h3 style={{ 
                       fontSize: '24px', 
                       fontWeight: 'bold',

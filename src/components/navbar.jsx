@@ -154,8 +154,7 @@
 
 // export default Navbar;
 
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Toolbar,
@@ -184,7 +183,7 @@ const useStyles = makeStyles({
     left: 0,
     width: "100%",
     zIndex: 50,
-    height: "70px !important",
+    height: "60px !important",
     fontFamily: "'Roboto', sans-serif !important",
   },
   toolbar: {
@@ -212,8 +211,8 @@ const useStyles = makeStyles({
     flexShrink: 0,
   },
   logo: {
-    height: "60px",
-    width: "65px",
+    height: "45px",
+    width: "50px",
     
     "@media (max-width: 768px)": {
       height: "50px",
@@ -244,14 +243,33 @@ const useStyles = makeStyles({
     fontWeight: "500!important",
     textDecoration: "none !important",
     marginRight: "16px !important",
-    transition: "color 0.3s ease !important",
+    transition: "all 0.3s ease !important",
     textTransform: "none !important",
     minWidth: "auto !important",
     padding: "8px 16px !important",
+    borderRadius: "6px !important",
+    position: "relative !important",
     
     "&:hover": {
       color: "#2563EB !important",
       backgroundColor: "transparent !important",
+    },
+  },
+  activeNavItem: {
+    color: "#2563EB !important",
+    fontWeight: "600 !important",
+    
+    "&::after": {
+      content: '""',
+      position: "absolute",
+      bottom: "10px",
+      left: "50%",
+      transform: "translateX(-50%)",
+      width: "80%",
+      height: "2px",
+      backgroundColor: "#f9b600",
+      borderRadius: "2px",
+      transition: "all 0.3s ease",
     },
   },
   rightButtons: {
@@ -329,9 +347,20 @@ const useStyles = makeStyles({
     padding: "12px 16px !important",
     borderRadius: "8px !important",
     marginBottom: "4px !important",
+    transition: "all 0.3s ease !important",
     
     "&:hover": {
       backgroundColor: "#F3F4F6 !important",
+    },
+  },
+  activeDrawerItem: {
+    backgroundColor: "#EFF6FF !important",
+    color: "#2563EB !important",
+    fontWeight: "600 !important",
+    
+    "& .MuiTypography-root": {
+      color: "#2563EB !important",
+      fontWeight: "600 !important",
     },
   },
   drawerItemText: {
@@ -340,6 +369,7 @@ const useStyles = makeStyles({
       fontSize: "1rem",
       fontWeight: "500",
       color: "#374151",
+      transition: "all 0.3s ease",
     },
   },
   drawerButtons: {
@@ -384,6 +414,68 @@ const Navbar = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+
+  const navItems = [
+    { label: "Home", id: "home" }, // Added Home button
+    { label: "Features", id: "features" },
+    { label: "Reviews", id: "reviews" },
+    { label: "FAQs", id: "faqs" },
+    { label: "About Us", id: "aboutus" },
+  ];
+
+  // Function to handle scroll and detect active section
+  const handleScroll = () => {
+    const sections = navItems.map(item => document.getElementById(item.id));
+    const scrollPosition = window.scrollY + 100; // Offset for navbar height
+
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const section = sections[i];
+      if (section && scrollPosition >= section.offsetTop) {
+        setActiveSection(navItems[i].id);
+        break;
+      }
+    }
+  };
+
+  // Function to check if element is in viewport
+  const isElementInViewport = (el) => {
+    if (!el) return false;
+    const rect = el.getBoundingClientRect();
+    return (
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) / 2 &&
+      rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) / 2
+    );
+  };
+
+  // Enhanced scroll handler with viewport detection
+  const enhancedScrollHandler = () => {
+    const sections = navItems.map(item => document.getElementById(item.id));
+    
+    // Check which section is currently in the viewport center
+    for (let section of sections) {
+      if (section && isElementInViewport(section)) {
+        setActiveSection(section.id);
+        return;
+      }
+    }
+
+    // Fallback to original scroll position logic
+    handleScroll();
+  };
+
+  useEffect(() => {
+    // Initial check
+    enhancedScrollHandler();
+
+    // Add scroll event listener
+    window.addEventListener("scroll", enhancedScrollHandler, { passive: true });
+    
+    // Cleanup
+    return () => {
+      window.removeEventListener("scroll", enhancedScrollHandler);
+    };
+  }, []);
 
   const handleLoginClick = () => {
     navigate("/login");
@@ -396,9 +488,17 @@ const Navbar = () => {
   };
 
   const scrollToSection = (id) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+    if (id === "home") {
+      // Scroll to top of the page for home
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setActiveSection("home");
+    } else {
+      const section = document.getElementById(id);
+      if (section) {
+        // Update active section immediately for better UX
+        setActiveSection(id);
+        section.scrollIntoView({ behavior: "smooth" });
+      }
     }
     setDrawerOpen(false);
   };
@@ -413,13 +513,6 @@ const Navbar = () => {
     setDrawerOpen(open);
   };
 
-  const navItems = [
-    { label: "Features", id: "features" },
-    { label: "Reviews", id: "reviews" },
-    { label: "FAQs", id: "faqs" },
-    { label: "About Us", id: "aboutus" },
-  ];
-
   const drawerContent = () => (
     <Box sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
       <div className={classes.drawerHeader}>
@@ -433,7 +526,9 @@ const Navbar = () => {
         {navItems.map((item) => (
           <ListItem
             key={item.id}
-            className={classes.drawerListItem}
+            className={`${classes.drawerListItem} ${
+              activeSection === item.id ? classes.activeDrawerItem : ""
+            }`}
             onClick={() => scrollToSection(item.id)}
             button
           >
@@ -467,7 +562,7 @@ const Navbar = () => {
   return (
     <AppBar className={classes.appBar} elevation={0}>
       <Toolbar className={classes.toolbar}>
-        <Box className={classes.logoContainer} onClick={() => navigate("/")}>
+        <Box className={classes.logoContainer} onClick={() => scrollToSection("home")}>
           <img
             src="gigalogo.png"
             alt="Giga Resume Builder"
@@ -480,7 +575,9 @@ const Navbar = () => {
           {navItems.map((item) => (
             <li key={item.id}>
               <Button
-                className={classes.navItem}
+                className={`${classes.navItem} ${
+                  activeSection === item.id ? classes.activeNavItem : ""
+                }`}
                 onClick={() => scrollToSection(item.id)}
               >
                 {item.label}
