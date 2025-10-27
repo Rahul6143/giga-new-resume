@@ -113,7 +113,9 @@ const theme = createTheme({
 
 const HomePage = () => (
   <>
-    <HeroSection />
+    <div id="home">
+      <HeroSection />
+    </div>
     <div id="features">
       <ExclusiveFeatures />
       <KeyHighlights />

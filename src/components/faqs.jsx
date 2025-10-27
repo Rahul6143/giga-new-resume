@@ -261,7 +261,7 @@ const FAQSection = () => {
   return (
     <Box
       sx={{
-        minHeight: "100vh",
+        // minHeight: "100vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
